@@ -1,0 +1,454 @@
+/**
+ * client/src/styles/main.css
+ * Find My Phone - Global Styles
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --danger-color: #e74c3c;
+  --light-bg: #ecf0f1;
+  --border-radius: 8px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--light-bg);
+  color: var(--secondary-color);
+}
+
+/* ============= Device View ============= */
+
+.device-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.device-header {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.device-header h1 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.device-header p {
+  color: #7f8c8d;
+}
+
+.room-section {
+  background: white;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.room-code-display {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.room-label {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+}
+
+.room-code-large {
+  font-size: 36px;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  color: var(--primary-color);
+  margin: 15px 0;
+  letter-spacing: 3px;
+}
+
+.owner-link {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--light-bg);
+}
+
+.owner-link p {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+}
+
+.link-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: var(--border-radius);
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  background: #f8f9fa;
+}
+
+/* ============= Owner View ============= */
+
+.owner-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.owner-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 15px 20px;
+  box-shadow: var(--shadow);
+}
+
+.owner-header h1 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.owner-layout {
+  display: flex;
+  flex: 1;
+  gap: 0;
+  overflow: hidden;
+}
+
+.owner-map {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+}
+
+.control-panel {
+  width: 350px;
+  background: white;
+  border-left: 1px solid #ecf0f1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-section {
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.panel-section h2 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--secondary-color);
+}
+
+.status-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: var(--border-radius);
+}
+
+.status-indicator {
+  font-size: 24px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.status-box > div {
+  flex: 1;
+}
+
+.status-box .secondary {
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+/* ============= Common Components ============= */
+
+.status-message {
+  padding: 12px 16px;
+  border-radius: var(--border-radius);
+  background: #e3f2fd;
+  color: #1976d2;
+  font-size: 14px;
+  text-align: center;
+}
+
+.status-message.status-error {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+.status-message.status-success {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.status-message.status-warning {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.info-item {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: var(--border-radius);
+}
+
+.info-item label {
+  display: block;
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.info-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--secondary-color);
+  font-family: 'Courier New', monospace;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+/* ============= Buttons ============= */
+
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.btn-secondary {
+  background: #95a5a6;
+  color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #7f8c8d;
+}
+
+.btn-warning {
+  background: var(--warning-color);
+  color: white;
+}
+
+.btn-warning:hover:not(:disabled) {
+  background: #e67e22;
+}
+
+.btn-large {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* ============= Events Log ============= */
+
+.events-log,
+.panel-section .events-list {
+  background: #f8f9fa;
+  border-radius: var(--border-radius);
+  padding: 12px;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  flex: 1;
+}
+
+.events-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-entry {
+  padding: 6px;
+  border-bottom: 1px solid #ecf0f1;
+  color: #555;
+}
+
+.event-entry:first-child {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* ============= Compass ============= */
+
+.compass-section {
+  padding: 15px;
+}
+
+.compass-container {
+  position: relative;
+  width: 200px;
+  height: 240px;
+  margin: 0 auto;
+}
+
+.compass-svg {
+  width: 100%;
+  height: 200px;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.compass-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.compass-bearing {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--danger-color);
+  margin-top: 8px;
+  font-family: 'Courier New', monospace;
+}
+
+/* ============= Leaflet Overrides ============= */
+
+.leaflet-container {
+  background: #ecf0f1;
+}
+
+.leaflet-popup-content {
+  font-size: 14px;
+  margin: 10px;
+}
+
+/* ============= Responsive Design ============= */
+
+@media (max-width: 768px) {
+  .owner-layout {
+    flex-direction: column;
+  }
+
+  .control-panel {
+    width: 100%;
+    max-height: 40vh;
+    border-left: none;
+    border-top: 1px solid #ecf0f1;
+  }
+
+  .device-container {
+    max-width: 100%;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-height: 800px) {
+    .events-log,
+    .panel-section .events-list {
+      max-height: 100px;
+    }
+  }
+}
+
+/* ============= Toast Notifications ============= */
+
+.toast {
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ============= Error Page ============= */
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #fff;
+}
+
+.error h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.error p {
+  font-size: 18px;
+  color: #7f8c8d;
+}
