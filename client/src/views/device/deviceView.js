@@ -136,9 +136,22 @@ class DeviceView {
     });
 
     // Connection status
-    socketManager.on('connection_status', (status) => {
-      this.logEvent(`Connection: ${status}`);
+  //   socketManager.on('connection_status', (status) => {
+  //     this.logEvent(`Connection: ${status}`);
+  //   });
+
+  socketManager.on('connection_status', (status) => {
+  this.logEvent(`Connection: ${status}`);
+
+  if (status === 'connected' && this.roomId) {
+    console.log('[DEVICE] Rejoining room after reconnect');
+
+    socketManager.emit('device:join', {
+      roomId: this.roomId
     });
+  }
+    });
+
   }
 
   /**
