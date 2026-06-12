@@ -46,5 +46,5 @@ export function formatRoomCode(code) {
  * @returns {string} Full shareable URL
  */
 export function getShareableOwnerUrl(roomCode, baseUrl = window.location.origin) {
-  return `${baseUrl}/owner?room=${roomCode}`;
+  return `${baseUrl}/?room=${roomCode}`;
 }
