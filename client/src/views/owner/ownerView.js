@@ -170,8 +170,11 @@ class OwnerView {
    */
   setupSocketListeners() {
     // Position update from device
+    // socketManager.on('position_update', (data) => {
+    //   this.handlePositionUpdate(data);
     socketManager.on('position_update', (data) => {
-      this.handlePositionUpdate(data);
+  console.log('[OWNER] Position received:', data);
+  this.handlePositionUpdate(data);
     });
 
     // Device status changes
